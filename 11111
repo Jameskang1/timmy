@@ -1,0 +1,44 @@
+CREATE DATABASE RECORD_COMPANY;
+USE RECORD_COMPANY;
+CREATE TABLE BANDS (
+ID INT NOT NULL AUTO_INCREMENT, 
+name VARCHAR(255) NOT NULL,
+PRIMARY KEY (id)
+);
+CREATE TABLE ALBUMS ( 
+id INT NOT NULL AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL, 
+RELEASE_YEAR INT,
+band_id INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (band_id) REFERENCES BAND(id)  
+);
+
+ INSERT INTO bands (name) 
+ VALUES ('IRON Maiden');
+ 
+ insert into bands (name) 
+VALUES ('DEUCE'),  ('Avenged sevenfold'), ('Ankor'); 
+
+SELECT * FROM bands; 
+
+SELECT * FROM BANDS LIMIT 2; 
+
+SELECT NAME FROM BANDS; 
+
+SELECT id AS 'ID', name AS 'Band NAME' 
+FROM bands;
+
+SELECT * FROM bands ORDER BY name; 
+
+INSERT INTO albums (name, release_year, band_id) 
+VALUES ('THE NUMBER OF THE Beasts', 1985, 1), 
+	   ('Power Slave', 1984, 1), 
+       ('Naightmare', 2008, 2), 
+       ('Nightmare', 2010, 3),
+	   ('Test Album', NULL, 3);
+SELECT * FROM albums; 
+
+SELECT DISTINCTname FROM albums; 
+
+
